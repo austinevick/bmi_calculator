@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'landing_page_ui.dart';
@@ -13,12 +14,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData.dark(),
-      home: LandingPage(),
+      theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: Color(0xff0a0d22),
+          cardColor: Color(0xff1d1f33),
+          appBarTheme: AppBarTheme(
+            backgroundColor: Color(0xff0a0d22),
+          )),
+      home: HomeScreen(),
     );
   }
 }
-
+//AWS SERVER
+//PW: VIC2021
+//User: openvpn
 //Color(0xff04040c),Color(0xff6f7693),Color(0xfffd0225)
 //https://dribbble.com/shots/4585382-Simple-BMI-Calculator/attachments/1036693?mode=media
 
@@ -30,6 +38,7 @@ class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
+//8Ez9b5M
 
 class _MyHomePageState extends State<MyHomePage> {
   int currentPosition = 0;
