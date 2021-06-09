@@ -45,9 +45,16 @@ class _HomeScreenState extends State<HomeScreen> {
       return 'UNDERWEIGHT';
     } else {
       color = Colors.red;
-
       return 'Obesity';
     }
+  }
+
+  String get getInterpretation {
+    return '';
+  }
+
+  String get getRange {
+    return '';
   }
 
   @override
