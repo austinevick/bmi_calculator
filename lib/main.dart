@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:bmi_calculator/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:path_provider/path_provider.dart';
 
 import 'landing_page_ui.dart';
 
@@ -61,6 +64,25 @@ class _MyHomePageState extends State<MyHomePage> {
   // double get percent => currentPosition / maxPosition;
   double get percentage => _batteryLevel / maxPosition;
 
+  Future<String> get _localPath async {
+    final directory = await getApplicationDocumentsDirectory();
+    // For your reference print the AppDoc directory
+    print('File path: ' + directory.path);
+
+    return directory.path;
+  }
+
+  Future<File> get _localFile async {
+    final path = await _localPath;
+    return File('$path/data.txt');
+  }
+
+  // Future<File> insertIntoFile() async {
+  //   final file = await _localFile;
+  //   var p = file.path.;
+  //   return p;
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,6 +93,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 50,
+                width: 150,
+                color: Colors.white,
+                child: TextButton(
+                    onPressed: () {
+                      _localPath;
+                    },
+                    child: Text('Get file path')),
+              ),
+            ),
             Text(
               '$batteryLevel%',
               style: TextStyle(fontSize: 35),
